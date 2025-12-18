@@ -30,6 +30,13 @@ jobs:
       - name: Build Next.js
         run: npm run build
 
-      # 5. 构建产物确认（可视化用）
+      # 5. Upload build artifact
+      - name: Upload static site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-static-site
+          path: out
+
+      # 6. 构建产物确认（可视化用）
       - name: List build output
         run: ls -la out
